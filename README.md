@@ -9,9 +9,9 @@ run ruby log_formatter.rb FILEWITHLOGS
 ## Options
 
 `-csv foo.csv`
-will save the output to comma a delimited file foo.csv
+will save the output to a comma delimited file foo.csv
 
-`f file.txt`
+`-f file.txt`
 will save the output to a text file
 
 ## Tests

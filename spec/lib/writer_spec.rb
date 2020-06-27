@@ -1,5 +1,4 @@
 require 'writer'
-require 'pry'
 
 RSpec.describe Writer do
   let(:args) { ["log.log"] }

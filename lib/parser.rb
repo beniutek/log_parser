@@ -3,13 +3,14 @@ require 'set'
 class Parser
   attr_reader :log_file, :result
 
-  def initialize(log_file)
+  def initialize(log_file, &formatter)
     @log_file = log_file
+    @formatter = formatter
+    @result = {}
   end
 
   def parse!
-    @result = {}
-
+    Logger.log("parsing! ....")
     File.foreach(log_file) do |line|
       site, ip = line.split(' ')
       @result[site] = log_entry(site, ip, @result[site])
@@ -19,10 +20,7 @@ class Parser
   end
 
   def ordered
-    parse! unless result
-
-    result.sort_by { |key, val| [-val[:unique_count], key] }
-          .map { |key, val| "#{key} #{val[:unique_count]} unique views" }
+    @formatter.call(self)
   end
 
   private

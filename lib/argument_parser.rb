@@ -39,4 +39,18 @@ class ArgumentParser
     raise ArgumentNotFoundError unless opts.index('-f')
     opts[opts.index('-f')+1]
   end
+
+  def options?
+    opts.include?('-o')
+  end
+
+  def timestamp?
+    return false unless options?
+    opts.include?('timestamp')
+  end
+
+  def line_numbers?
+    return false unless options?
+    opts.include?('line_numbers')
+  end
 end
