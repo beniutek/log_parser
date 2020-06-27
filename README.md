@@ -14,6 +14,12 @@ will save the output to a comma delimited file foo.csv
 `-f file.txt`
 will save the output to a text file
 
+`-o timestamp`
+will produce timestamps in the csv output
+
+`-o line_numbers`
+will produce additional line numbers
+
 ## Tests
 
 `gem install bundler`
